@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let transactionHistory = [];
 
     function displayAccountInfo() {
-        let info = `Your current account balance is: $${accountBalance}\n\nTransaction History:\n`;
+        let info = `Your current account balance is: INR ${accountBalance}\n\nTransaction History:\n`;
         transactionHistory.forEach(transaction => {
-            info += `${transaction.date} - ${transaction.type}: $${transaction.amount}`;
+            info += `${transaction.date} - ${transaction.type}: INR ${transaction.amount}`;
             if (transaction.description) {
                 info += ` (Description: ${transaction.description})`;
             }
