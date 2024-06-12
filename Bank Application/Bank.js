@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let transactionHistory = [];
 
     function displayAccountInfo() {
-        let info = `Your current account balance is: INR ${accountBalance}\n\nTransaction History:\n`;
+        let info = `Your current account balance is: INR ${accountBalance}\n\n Reciepent Account balance is INR ${recipientBalance}\n Transaction History:\n`;
         transactionHistory.forEach(transaction => {
             info += `${transaction.date} - ${transaction.type}: INR ${transaction.amount}`;
             if (transaction.description) {
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         transactionHistory.push(transaction);
 
-        alert(`Interest of $${interest.toFixed(2)} added at a rate of ${rate}%. New balance: $${accountBalance.toFixed(2)}`);
+        alert(`Interest of INR ${interest.toFixed(2)} added at a rate of ${rate}%. New balance: INR ${accountBalance.toFixed(2)}`);
     }
 
     accountInfo.addEventListener('click', displayAccountInfo);
