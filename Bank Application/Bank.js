@@ -45,12 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (action === 'deposit') {
             accountBalance += amount;
             transaction.type = 'Deposit';
-            alert(`Deposited $${amount}. New balance: $${accountBalance}`);
+            alert(`Deposited INR ${amount}. New balance: INR ${accountBalance}`);
         } else if (action === 'withdraw') {
             if (amount <= accountBalance) {
                 accountBalance -= amount;
                 transaction.type = 'Withdraw';
-                alert(`Withdrew $${amount}. New balance: $${accountBalance}`);
+                alert(`Withdrew INR ${amount}. New balance: INR ${accountBalance}`);
             } else {
                 alert('Insufficient funds for this withdrawal.');
                 return;
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 recipientBalance += amount;
                 transaction.type = 'Transfer';
                 transaction.recipient = recipient;
-                alert(`Transferred $${amount} to recipient. Your new balance: $${accountBalance}`);
+                alert(`Transferred INR ${amount} to recipient. Your new balance: INR ${accountBalance}`);
             } else {
                 alert('Insufficient funds for this transfer.');
                 return;
