@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const accountInfoBtn = document.getElementById('accountInfoBtn');
-    const depositBtn = document.getElementById('depositBtn');
-    const withdrawBtn = document.getElementById('withdrawBtn');
-    const transferBtn = document.getElementById('transferBtn');
+    const accountInfo = document.getElementById('accountInfoBtn');
+    const deposit = document.getElementById('depositBtn');
+    const withdraw = document.getElementById('withdrawBtn');
+    const transfer = document.getElementById('transferBtn');
     const interestBtn = document.getElementById('interestBtn');
     const actionForm = document.getElementById('actionForm');
     const amountInput = document.getElementById('amount');
@@ -93,23 +93,23 @@ document.addEventListener('DOMContentLoaded', function() {
         alert(`Interest of $${interest.toFixed(2)} added at a rate of ${rate}%. New balance: $${accountBalance.toFixed(2)}`);
     }
 
-    accountInfoBtn.addEventListener('click', displayAccountInfo);
+    accountInfo.addEventListener('click', displayAccountInfo);
 
-    depositBtn.addEventListener('click', function() {
+    deposit.addEventListener('click', function() {
         actionForm.classList.remove('hidden');
         actionForm.setAttribute('data-action', 'deposit');
         recipientInput.classList.add('hidden');
         interestRateInput.classList.add('hidden');
     });
 
-    withdrawBtn.addEventListener('click', function() {
+    withdraw.addEventListener('click', function() {
         actionForm.classList.remove('hidden');
         actionForm.setAttribute('data-action', 'withdraw');
         recipientInput.classList.add('hidden');
         interestRateInput.classList.add('hidden');
     });
 
-    transferBtn.addEventListener('click', function() {
+    transfer.addEventListener('click', function() {
         actionForm.classList.remove('hidden');
         actionForm.setAttribute('data-action', 'transfer');
         recipientInput.classList.remove('hidden');
