@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let transactionHistory = [];
 
     function displayAccountInfo() {
-        let info = `Your current account balance is: INR ${accountBalance}\n\nTransaction History:\n`;
+        let info = `Your current account balance is: $${accountBalance}\n\nTransaction History:\n`;
         transactionHistory.forEach(transaction => {
-            info += `${transaction.date} - ${transaction.type}: INR ${transaction.amount}`;
+            info += `${transaction.date} - ${transaction.type}: $${transaction.amount}`;
             if (transaction.description) {
                 info += ` (Description: ${transaction.description})`;
             }
@@ -77,12 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleInterest(event) {
         event.preventDefault();
 
-        const rate = parseFloat(interestRateInput.value);
-        if (isNaN(rate) || rate <= 0) {
-            alert('Please enter a valid interest rate.');
-            return;
-        }
-
+        const rate = 10;
         const interest = accountBalance * (rate / 100);
         accountBalance += interest;
 
@@ -96,8 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
         transactionHistory.push(transaction);
 
         alert(`Interest of $${interest.toFixed(2)} added at a rate of ${rate}%. New balance: $${accountBalance.toFixed(2)}`);
-
-        interestRateInput.value = '';
     }
 
     accountInfoBtn.addEventListener('click', displayAccountInfo);
@@ -123,13 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         interestRateInput.classList.add('hidden');
     });
 
-    interestBtn.addEventListener('click', function() {
-        actionForm.classList.add('hidden');
-        interestRateInput.classList.remove('hidden');
-        interestRateInput.focus();
-    });
+    interestBtn.addEventListener('click', handleInterest);
 
     actionForm.addEventListener('submit', handleFormSubmit);
-
-    interestRateInput.addEventListener('change', handleInterest);
 });
